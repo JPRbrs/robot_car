@@ -16,6 +16,9 @@ the L293D chip
  // pin 11 right motor
  // pin 14 right motor
 
+enum state_t { stateStopped, stateRunning };
+state_t state;
+unsigned long startTime;
 int i;
  
 void setup() {
@@ -27,6 +30,8 @@ void setup() {
   pinMode(DIRB,OUTPUT);
   pinMode(DIRD, OUTPUT);
   Serial.begin(9600);
+  state = stateStopped;
+  startTime = millis();
 }
 
 void loop() {
