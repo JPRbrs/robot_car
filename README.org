@@ -1,0 +1,15 @@
+
+Provisional shopping list:
+- arduino board   got it
+- motor board
+  Check it has pass through for unused pins
+  Check it has libraries for arduino available
+- distance sensor got it
+- protoboard      got it, might need a smaller one
+- vehicle kit     must include wheels motor batteries will be bought separately
+
+- github
+- documentation?
+- unit testing for C (or the language arduino uses)
+
+[[https://playground.arduino.cc/Interfacing/Python][Python Arduino Serial connection]]
