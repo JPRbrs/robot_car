@@ -1,12 +1,15 @@
 * Creating a Raspberry Access point
 ** Get minibian and burn it onto the sdcard
-  delete partitions on sd card with gparted
+  delete partitions on sd card and burn the image
+  #+BEGIN_SRC 
+  sudo fdisk /dev/<device>
   dd bs=4M if=image_file.img of=/dev/mmcblk0p conv=fsync
-** Expand the partition
-  [[https://minibianpi.wordpress.com/how-to/resize-sd/]]
-  an easier way to do it is install raspi-config
+  #+END_SRC
+** Install raspi-config and expand the partition
+   [[https://minibianpi.wordpress.com/how-to/resize-sd/]] or use raspi-config
+** Update to strech
+   [[https://linuxconfig.org/how-to-upgrade-debian-8-jessie-to-debian-9-stretch][source]]
 ** Install emacs, tmux, git, sudo, pip, python
-  send emacs and tmux config
 ** Setting up access point
   you'll need to install dhcpd and iptables along with dnsmasq and hostapd   [[https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md][reference]]
 ** It looks like the connection is not stable with the phone. I've made wlan0 static as follows:
@@ -20,3 +23,14 @@ sudo reboot
 ** Building temporary server to prove we can connect to the access point and use websockets
 ** Find how to connect raspberry with Arduino so rpi sends orders to arduino
 see [[https://nanpy.github.io/][nanpi]]
+*** Download and configure Nanpi
+#+BEGIN_SRC shell
+git clone git@github.com:nanpy/nanpy-firmware.git
+cd nanpy-firmware
+./configure.sh
+#+END_SRC
+
+Now copy Nanpy folder to your arduino sketch folder (you can find that out on Arduino -> file -> preferences.
+Then connect to your arduino and updload the Nanpy sketch.
+
+Run nanpy_test.py to check you can communicate with the Arduino using nanpy
